@@ -60,11 +60,11 @@ public class Runtime {
 	 * <code>pure native constructor frege.runtime.Runtime.constructor :: a -> Int</code>
 	 */
 	final public static int constructor(Value v) {		// if it is statically known that v is a Value 
-		return v._constructor(); 
+		return v.constructor();
 	}
 	// final public static int constructor(Integer v) { return v; }
 	final public static int constructor(Object v) { 	// if v is completely unknown, it could still be a Value
-		if (v instanceof Value) return ((Value)v)._constructor();
+		if (v instanceof Value) return ((Value)v).constructor();
 		if (v instanceof Integer) return ((Integer)v).intValue();
 		return 0;
 	}
@@ -76,6 +76,16 @@ public class Runtime {
 		return o.getClass();
 	}
 	
+	/**
+	 * Implementation for frege.prelude.PreludeBase.Class.forName
+	 * @throws ClassNotFoundException
+	 */
+	@SuppressWarnings("unchecked")
+	final public static<A> Class<A> classForName(final String x)
+													throws ClassNotFoundException {
+		return (Class<A>) Class.forName(x);
+	}
+
 	private static Charset utf8 = Charset.forName("UTF-8");
 	/**
 	 * Provide UTF-8 encoded standard printer for stdout with automatic line flushing
