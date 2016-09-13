@@ -47,6 +47,15 @@ public class Concurrent {
     	}
     } */
 
+    public static java.util.concurrent.ExecutorService
+    		setFregeExecutorService(java.util.concurrent.ExecutorService svc) {
+    	return null; //throw new RuntimeException("setFregeExecutorService unimplemented in Concurrent.java6");
+    }
+
+    final public static java.util.concurrent.ExecutorService executorService() {
+    	return null; //throw new RuntimeException("executorService unimplemented in Concurrent.java6");
+    }
+
 	/**
      *  <p>Evaluate <code>e</code> in <code>const e</code> in parallel. 
      *  This is a helper function for the `par` operator.</p>
